@@ -1,7 +1,7 @@
 var $ = document.getElementById.bind(document)
 
 function sizeCSS(x, property, value) {
-    x.style[property] = (0|value) + 'px'
+    x.style[property] = value + 'px'
 }
 
 var cwidth = 960, cheight = 540, aspect = 16 / 9
