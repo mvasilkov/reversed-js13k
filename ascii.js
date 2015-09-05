@@ -2,16 +2,15 @@ var charAnimation = charMovingParts.map(function (a) {
     return charStaticPart + a
 })
 
-var frame = 0
 var $character = document.createElement('p')
-var charTextNode = document.createTextNode(charAnimation[frame])
+var charTextNode = document.createTextNode(charAnimation[0])
 
-$character.className = 'a' + frame
+$character.className = 'a' + 0
 $character.appendChild(charTextNode)
 $p.appendChild($character)
 
 
-var playerwidth = 82, playerheight = 90
+var playerwidth = 92, playerheight = 90
 
 asciizoomx = playerwidth / $character.clientWidth
 asciizoomy = playerheight / $character.clientHeight
@@ -20,9 +19,7 @@ asciitop = 0.5 * (cheight - playerheight)
 handleResize()
 
 
-setInterval(function () {
-    if (++frame == charAnimation.length)
-        frame = 0
+function charAnimate(frame) {
     $character.className = 'a' + frame
     charTextNode.nodeValue = charAnimation[frame]
-}, 50)
+}

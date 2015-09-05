@@ -17,6 +17,7 @@ $c.height = cheight
 
 function handleResize() {
     var w = innerWidth, h = innerHeight
+    var left, top
 
     if (w / h > aspect)
         w = h * aspect
@@ -25,19 +26,25 @@ function handleResize() {
 
     sizeCSS($a, 'width', w)
     sizeCSS($a, 'height', h)
-    sizeCSS($c, 'left', -0.5 * w)
-    sizeCSS($c, 'top', -0.5 * h)
+    sizeCSS($c, 'left', left = 0.5 * (innerWidth - w))
+    sizeCSS($c, 'top', top = 0.5 * (innerHeight - h))
 
     /* ascii */
-    sizeCSS($p, 'left', 0.5 * (innerWidth - w))
-    sizeCSS($p, 'top', 0.5 * (innerHeight - h))
+    sizeCSS($p, 'left', left)
+    sizeCSS($p, 'top', top)
 
     asciizoom = w / cwidth
     asciiUpdate()
 }
 
+
+var transformProperty = 'transform'
+if (!(transformProperty in $a.style)) {
+    transformProperty = 'webkitTransform'
+}
+
 function asciiUpdate() {
-    $p.style.transform = 'scale('
+    $p.style[transformProperty] = 'scale('
     + asciizoom + ')translate('
     + asciileft + 'px,'
     + (asciireversed? asciitop + 90: asciitop) + 'px)scale('

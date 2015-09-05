@@ -11,9 +11,9 @@ html, body {
 }
 
 #a {
-    left: 50%;
+    left: 0;
     position: absolute;
-    top: 50%;
+    top: 0;
 }
 
 #c {

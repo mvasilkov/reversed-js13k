@@ -4,10 +4,10 @@ function flipGravity() {
 }
 
 function handleSpacebar(event) {
-    if (event.keyCode != 32)
-        return
-    event.preventDefault()
-    flipGravity()
+    if (event.which == 32 || event.keyCode == 32) {
+        event.preventDefault()
+        flipGravity()
+    }
 }
 
 document.body.addEventListener('keypress', handleSpacebar)

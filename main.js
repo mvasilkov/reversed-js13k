@@ -4,6 +4,7 @@ var character = {
     width: playerwidth,
     height: playerheight,
     g: 0.1,
+    grip: false,
     velocityx: 4,
     velocityy: 0
 }
@@ -19,6 +20,11 @@ function computeCharacter() {
     var t = now - then
     then = now
 
+    if (character.grip) {
+        character.velocityx += t * 0.1
+        if (character.velocityx > 4)
+            character.velocityx = 4
+    }
     character.velocityy += t * character.g
 
     var position
@@ -37,6 +43,7 @@ function computeCharacter() {
     expectation.push({x: expectation[0].x + character.width, y: expectation[0].y})
 
     expectation.velocityy = character.velocityy
+    expectation.grip = false
 
     platforms.forEach(function (platform) {
         collide(position, expectation, platform)
@@ -49,6 +56,7 @@ function computeCharacter() {
         character.y = expectation[0].y - character.height
     }
     character.velocityy = expectation.velocityy
+    character.grip = expectation.grip
 
     /* magic */
 
@@ -70,6 +78,9 @@ function computeCharacter() {
 
     character.x = expectation[0].y - character.width
     character.velocityx = expectation.velocityy
+
+
+    charAnimate((now >>> 6) % charAnimation.length)
 }
 
 function mainloop() {

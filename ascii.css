@@ -4,19 +4,23 @@
 
 p {
     color: #fff;
-    font: 15px 'Courier New', 'PT Mono', 'Andale Mono', monospace;
+    font: 15px/1 'Courier New', 'PT Mono', 'Andale Mono', monospace;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
     position: relative;
+    -webkit-transition: -webkit-transform 25ms;
     transition: transform 25ms;
     white-space: pre;
 }
 
 p.a1, p.a2, p.a4, p.a5 {
+    -webkit-transform: translateY(-9px);
     transform: translateY(-9px);
 }
 
 #p {
     position: absolute;
+    -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     -moz-user-select: none;
     -ms-user-select: none;

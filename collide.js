@@ -30,4 +30,5 @@ function collide(pos, expect, wall) {
 
     expect[0].y = expect[1].y = wall[0].y + (pos[0].y > expect[0].y? 1: -1)
     expect.velocityy = 0
+    expect.grip = true
 }
