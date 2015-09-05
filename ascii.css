@@ -4,10 +4,10 @@
 
 p {
     color: #fff;
-    font: 15px 'Courier New', monospace;
+    font: 15px 'Courier New', 'PT Mono', 'Andale Mono', monospace;
     margin: 0;
     position: relative;
-    transition: transform 90ms;
+    transition: transform 30ms;
     white-space: pre;
 }
 
