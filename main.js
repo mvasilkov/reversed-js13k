@@ -4,7 +4,7 @@ var character = {
     width: playerwidth,
     height: playerheight,
     g: 0.1,
-    velocityx: 0.1,
+    velocityx: 4,
     velocityy: 0
 }
 
@@ -19,10 +19,15 @@ function computeCharacter() {
     var t = now - then
     then = now
 
-    character.velocityx = 4
     character.velocityy += t * character.g
 
-    var position = [{x: character.x, y: character.y + character.height}]
+    var position
+    if (character.velocityy < 0) {
+        position = [{x: character.x, y: character.y}]
+    }
+    else {
+        position = [{x: character.x, y: character.y + character.height}]
+    }
     position.push({x: position[0].x + character.width, y: position[0].y})
 
     var expectation = [{
@@ -37,7 +42,12 @@ function computeCharacter() {
         collide(position, expectation, platform)
     })
 
-    character.y = expectation[0].y - character.height
+    if (character.velocityy < 0) {
+        character.y = expectation[0].y
+    }
+    else {
+        character.y = expectation[0].y - character.height
+    }
     character.velocityy = expectation.velocityy
 
     /* magic */

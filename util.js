@@ -6,7 +6,7 @@ function sizeCSS(x, property, value) {
 
 var cwidth = 960, cheight = 540, aspect = 16 / 9
 var asciizoom, asciizoomx = 1, asciizoomy = 1
-var asciileft = 0, asciitop = 0
+var asciileft = 0, asciitop = 0, asciireversed = false
 
 
 var $a = $('a'), $c = $('c'), $p = $('p')
@@ -40,9 +40,9 @@ function asciiUpdate() {
     $p.style.transform = 'scale('
     + asciizoom + ')translate('
     + asciileft + 'px,'
-    + asciitop + 'px)scale('
+    + (asciireversed? asciitop + 90: asciitop) + 'px)scale('
     + asciizoomx + ','
-    + asciizoomy + ')'
+    + (asciireversed? -asciizoomy: asciizoomy) + ')'
 }
 
 

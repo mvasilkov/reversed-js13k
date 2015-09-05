@@ -7,7 +7,7 @@ p {
     font: 15px 'Courier New', 'PT Mono', 'Andale Mono', monospace;
     margin: 0;
     position: relative;
-    transition: transform 30ms;
+    transition: transform 25ms;
     white-space: pre;
 }
 
