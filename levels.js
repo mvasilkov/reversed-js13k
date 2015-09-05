@@ -8,5 +8,25 @@ levels.push([
     '',
     '',
     '       xx       ',
-    '       xx ^^    '
+    '       xx       '
+])
+
+levels.push([
+    '           vv   ',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '     ^^         '
+])
+
+levels.push([
+    '   vvvvvv       ',
+    '',
+    '',
+    '     xxxxxx     ',
+    '',
+    '',
+    '       ^^^^^^   '
 ])

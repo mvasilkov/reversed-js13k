@@ -1,18 +1,35 @@
-var character = {
-    x: 10,
-    y: 0.5 * (cheight - playerheight),
-    width: playerwidth,
-    height: playerheight,
-    g: 0.1,
-    grip: false,
-    velocityx: 4,
-    velocityy: 0
+function initCharacter() {
+    asciireversed = false
+    return {
+        x: 10,
+        y: 0.5 * (cheight - playerheight),
+        width: playerwidth,
+        height: playerheight,
+        g: 0.1,
+        grip: false,
+        velocityx: 4,
+        velocityy: 0
+    }
 }
 
-var currentLevel = 0
-var platforms = levels[currentLevel].p
-var walls = levels[currentLevel].w
-var spikes = levels[currentLevel].s
+function initLevel(level) {
+    if (level >= levels.length) {
+        // TODO ending
+        level = levels.length - 1
+    }
+
+    paintLevel(levels[currentLevel = level])
+    platforms = levels[level].p
+    walls = levels[level].w
+    spikes = levels[level].s
+}
+
+var character = initCharacter()
+
+var currentLevel
+var platforms, walls, spikes
+
+initLevel(0)
 
 var then
 
@@ -87,21 +104,16 @@ function computeCharacter() {
 function mainloop() {
     requestAnimationFrame(mainloop)
 
+    if (character.x + character.width > 940) {
+        character = initCharacter()
+        initLevel(currentLevel + 1)
+    }
+
     /* did he dieded? */
 
     for (i = spikes.length; i--;) {
         if (overlap(character, spikes[i])) {
-            character = {
-                x: 10,
-                y: 0.5 * (cheight - playerheight),
-                width: playerwidth,
-                height: playerheight,
-                g: 0.1,
-                grip: false,
-                velocityx: 4,
-                velocityy: 0
-            }
-            asciireversed = false
+            character = initCharacter()
             break
         }
     }

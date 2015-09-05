@@ -3,6 +3,7 @@ var canvas = $c.getContext('2d')
 function paintLevel(level) {
     var i, j
 
+    canvas.clearRect(0, 0, cwidth, cheight)
     canvas.beginPath()
 
     for (i = 16; i--;) {
@@ -30,6 +31,13 @@ function paintLevel(level) {
                 canvas.lineTo(cellsize * (i + 0.5), cellsize * (j + 1))
                 canvas.lineTo(cellsize * (i + 0.75), cellsize * j)
                 canvas.lineTo(cellsize * (i + 1), cellsize * (j + 1))
+            }
+            else if (level.a[j][i] == 'v') {
+                canvas.moveTo(cellsize * i, cellsize * j)
+                canvas.lineTo(cellsize * (i + 0.25), cellsize * (j + 1))
+                canvas.lineTo(cellsize * (i + 0.5), cellsize * j)
+                canvas.lineTo(cellsize * (i + 0.75), cellsize * (j + 1))
+                canvas.lineTo(cellsize * (i + 1), cellsize * j)
             }
         }
     }

@@ -116,7 +116,7 @@ function loadLevel(ascii) {
         spikes.kurwa = false
 
         for (i = 16; i--;) {
-            if (ascii[j][i] == '^') {
+            if (ascii[j][i] in {'^': 1, v: 1}) {
                 canHazPlatform(spikes)
             }
             else {
