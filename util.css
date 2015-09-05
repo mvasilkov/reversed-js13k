@@ -1,7 +1,13 @@
+/* Reversed
+ * Copyright (c) 2015 Mark Vasilkov (https://github.com/mvasilkov)
+ * License: MIT */
+
 html, body {
     height: 100%;
     margin: 0;
     overflow: hidden;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 #a {

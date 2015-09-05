@@ -5,9 +5,11 @@ function sizeCSS(x, property, value) {
 }
 
 var cwidth = 960, cheight = 540, aspect = 16 / 9
+var asciizoom, asciizoomx = 1, asciizoomy = 1
+var asciileft = 0, asciitop = 0
 
 
-var $a = $('a'), $c = $('c')
+var $a = $('a'), $c = $('c'), $p = $('p')
 
 $c.width = cwidth
 $c.height = cheight
@@ -25,6 +27,22 @@ function handleResize() {
     sizeCSS($a, 'height', h)
     sizeCSS($c, 'left', -0.5 * w)
     sizeCSS($c, 'top', -0.5 * h)
+
+    /* ascii */
+    sizeCSS($p, 'left', 0.5 * (innerWidth - w))
+    sizeCSS($p, 'top', 0.5 * (innerHeight - h))
+
+    asciizoom = w / cwidth
+    asciiUpdate()
+}
+
+function asciiUpdate() {
+    $p.style.transform = 'scale('
+    + asciizoom + ')translate('
+    + asciileft + 'px,'
+    + asciitop + 'px)scale('
+    + asciizoomx + ','
+    + asciizoomy + ')'
 }
 
 

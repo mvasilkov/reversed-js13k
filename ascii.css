@@ -1,0 +1,24 @@
+/* Reversed
+ * Copyright (c) 2015 Mark Vasilkov (https://github.com/mvasilkov)
+ * License: MIT */
+
+p {
+    color: #fff;
+    font: 15px 'Courier New', monospace;
+    margin: 0;
+    position: relative;
+    transition: transform 90ms;
+    white-space: pre;
+}
+
+p.a1, p.a2, p.a4, p.a5 {
+    transform: translateY(-9px);
+}
+
+#p {
+    position: absolute;
+    transform-origin: 0 0;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
