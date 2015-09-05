@@ -109,7 +109,32 @@ function loadLevel(ascii) {
         return b.y - a.y
     })
 
-    return {a: ascii, p: platforms, w: walls}
+
+    var spikes = []
+
+    for (j = 9; j--;) {
+        spikes.kurwa = false
+
+        for (i = 16; i--;) {
+            if (ascii[j][i] == '^') {
+                canHazPlatform(spikes)
+            }
+            else {
+                spikes.kurwa = false
+            }
+        }
+    }
+
+    spikes = spikes.map(function (b) {
+        return {
+            x: cellsize * b[0],
+            y: cellsize * b[1],
+            width: cellsize * b[2],
+            height: cellsize
+        }
+    })
+
+    return {a: ascii, p: platforms, w: walls, s: spikes}
 }
 
 function toCoordinates(b, inc) {

@@ -12,6 +12,7 @@ var character = {
 var currentLevel = 0
 var platforms = levels[currentLevel].p
 var walls = levels[currentLevel].w
+var spikes = levels[currentLevel].s
 
 var then
 
@@ -85,6 +86,26 @@ function computeCharacter() {
 
 function mainloop() {
     requestAnimationFrame(mainloop)
+
+    /* did he dieded? */
+
+    for (i = spikes.length; i--;) {
+        if (overlap(character, spikes[i])) {
+            character = {
+                x: 10,
+                y: 0.5 * (cheight - playerheight),
+                width: playerwidth,
+                height: playerheight,
+                g: 0.1,
+                grip: false,
+                velocityx: 4,
+                velocityy: 0
+            }
+            asciireversed = false
+            break
+        }
+    }
+
     computeCharacter()
 
     asciileft = character.x

@@ -22,6 +22,24 @@ function paintLevel(level) {
 
     canvas.beginPath()
 
+    for (i = 16; i--;) {
+        for (j = 9; j--;) {
+            if (level.a[j][i] == '^') {
+                canvas.moveTo(cellsize * i, cellsize * (j + 1))
+                canvas.lineTo(cellsize * (i + 0.25), cellsize * j)
+                canvas.lineTo(cellsize * (i + 0.5), cellsize * (j + 1))
+                canvas.lineTo(cellsize * (i + 0.75), cellsize * j)
+                canvas.lineTo(cellsize * (i + 1), cellsize * (j + 1))
+            }
+        }
+    }
+
+    canvas.fillStyle = '#F82406'
+    canvas.fill()
+
+
+    canvas.beginPath()
+
     level.p.concat(level.w)
     .forEach(function (platform) {
         canvas.moveTo(platform[0].x, platform[0].y)

@@ -8,5 +8,5 @@ levels.push([
     '',
     '',
     '       xx       ',
-    '       xx       '
+    '       xx ^^    '
 ])
