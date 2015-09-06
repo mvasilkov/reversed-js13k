@@ -1,13 +1,15 @@
 var canvas = $c.getContext('2d')
 
-function paintLevel(level) {
+function paintLevel(n) {
     var i, j
+    var level = levels[n]
 
     canvas.clearRect(0, 0, cwidth, cheight)
     canvas.beginPath()
 
     for (i = 16; i--;) {
-        for (j = 9; j--;) {
+      for (j = 9; j--;) {
+        if (!level) { continue;}
             if (level.a[j][i] == 'x') {
                 canvas.rect(cellsize * i, cellsize * j, cellsize, cellsize)
             }
@@ -17,15 +19,16 @@ function paintLevel(level) {
     canvas.fillStyle = '#586E75'
     canvas.fill()
 
-    canvas.fillStyle = '#FFFBEB'
-    paintPattern()
+    canvas.fillStyle = canvas.strokeStyle = '#FFFBEB'
+    n % 2? paintDotPattern(): paintStripePattern()
 
 
     canvas.beginPath()
 
     for (i = 16; i--;) {
         for (j = 9; j--;) {
-            if (level.a[j][i] == '^') {
+          if (!level) { continue; }
+          if (level.a[j][i] == '^') {
                 canvas.moveTo(cellsize * i, cellsize * (j + 1))
                 canvas.lineTo(cellsize * (i + 0.25), cellsize * j)
                 canvas.lineTo(cellsize * (i + 0.5), cellsize * (j + 1))
@@ -47,26 +50,28 @@ function paintLevel(level) {
 
 
     canvas.beginPath()
-
+  if (level) {
     level.p.concat(level.w)
-    .forEach(function (platform) {
+      .forEach(function (platform) {
         canvas.moveTo(platform[0].x, platform[0].y)
         canvas.lineTo(platform[1].x, platform[1].y)
-    })
-
+      })
     canvas.lineCap = 'square'
     canvas.lineWidth = 2
     canvas.strokeStyle = '#EEFF41'
     canvas.stroke()
+  }
 }
 
-function paintPattern() {
+function paintDotPattern() {
     var step = 20, pad = 10
     var thickness = 2, inc = 0.000626
-  var a = Math.random() < 0.5? -0.1: 0.1
+
+    var a = coin()? -0.1: 0.1
+
     var i, j
 
-    if (Math.random() < 0.5) {
+    if (coin()) {
         thickness = 4
         inc = -inc
     }
@@ -74,7 +79,7 @@ function paintPattern() {
     canvas.save()
 
     canvas.translate(0.5 * cwidth, 0.5 * cheight)
-    canvas.rotate(Math.random() < 0.5? 0.5 * a: a)
+    canvas.rotate(coin()? 0.5 * a: a)
     canvas.translate(-0.5 * cwidth, -0.5 * cheight)
 
     canvas.globalCompositeOperation = 'source-atop'
@@ -90,5 +95,30 @@ function paintPattern() {
     canvas.restore()
 }
 
+function paintStripePattern() {
+    var inc = 10 * Math.sqrt(2)
+    var i
 
-//paintLevel(levels[0])
+
+    canvas.save()
+
+    canvas.translate(0.5 * cwidth, 0.5 * cheight)
+    canvas.rotate((coin()? -1: 1) * 0.25 * Math.PI)
+    canvas.translate(-0.5 * cwidth + 0.5, -0.5 * cheight + 0.5)
+
+    canvas.globalCompositeOperation = 'source-atop'
+
+    canvas.beginPath()
+    for (i = -cwidth; i < 2 * cwidth; i += inc) {
+        canvas.moveTo(i, -cheight)
+        canvas.lineTo(i, 2 * cheight)
+    }
+    canvas.lineWidth = 1
+    canvas.stroke()
+
+    canvas.restore()
+}
+
+
+paintLevel(0)
+

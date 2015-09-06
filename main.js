@@ -17,8 +17,8 @@ function initLevel(level) {
         // TODO ending
         level = levels.length - 1
     }
-  
-    paintLevel(levels[currentLevel = level])
+
+    paintLevel(currentLevel = level)
     platforms = levels[level].p
     walls = levels[level].w
     spikes = levels[level].s
@@ -102,7 +102,7 @@ function computeCharacter() {
 }
 
 function mainloop() {
-    requestAnimationFrame(mainloop)
+  requestAnimationFrame(mainloop)
   paintLevel(levels[currentLevel])
   paintBackdrop(character.g);
     if (character.x + character.width > 940) {

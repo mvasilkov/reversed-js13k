@@ -1,3 +1,7 @@
+function coin() {
+    return Math.random() < 0.5
+}
+
 var $ = document.getElementById.bind(document)
 
 function sizeCSS(x, property, value) {

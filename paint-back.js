@@ -18,6 +18,9 @@ function drawStars(stars, offset) {
       stars[i].off = cheight-cellsize;
       stars[i].x = rnd(0, cwidth);
     }
+    if (y > cheight-cellsize) {
+      y -= cheight;
+    }
     c.fillRect(x, y, s, s);
   }
 }
@@ -30,9 +33,9 @@ function prepareStars(opacity, size) {
   return stars;
 }
 
-stars1 = prepareStars(0.3, 1);
-stars2 = prepareStars(0.6, 2);
-stars3 = prepareStars(1, 3);
+stars1 = prepareStars(0.3, 3);
+stars2 = prepareStars(0.6, 6);
+stars3 = prepareStars(1, 9);
 
 function paintBackdrop(direction) {
   drawStars(stars1, 4 * direction);
