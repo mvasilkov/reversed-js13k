@@ -18,7 +18,7 @@ function initLevel(level) {
         level = levels.length - 1
     }
 
-    paintLevel(levels[currentLevel = level])
+    paintLevel(currentLevel = level)
     platforms = levels[level].p
     walls = levels[level].w
     spikes = levels[level].s
