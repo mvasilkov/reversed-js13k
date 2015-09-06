@@ -17,7 +17,7 @@ function initLevel(level) {
         // TODO ending
         level = levels.length - 1
     }
-
+  
     paintLevel(levels[currentLevel = level])
     platforms = levels[level].p
     walls = levels[level].w
@@ -103,7 +103,8 @@ function computeCharacter() {
 
 function mainloop() {
     requestAnimationFrame(mainloop)
-
+  paintLevel(levels[currentLevel])
+  paintBackdrop(character.g);
     if (character.x + character.width > 940) {
         character = initCharacter()
         initLevel(currentLevel + 1)

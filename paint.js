@@ -63,7 +63,7 @@ function paintLevel(level) {
 function paintPattern() {
     var step = 20, pad = 10
     var thickness = 2, inc = 0.000626
-    var a = Math.random() < 0.5? -0.1: 0.1
+  var a = Math.random() < 0.5? -0.1: 0.1
     var i, j
 
     if (Math.random() < 0.5) {
@@ -91,4 +91,4 @@ function paintPattern() {
 }
 
 
-paintLevel(levels[0])
+//paintLevel(levels[0])

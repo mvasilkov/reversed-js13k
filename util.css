@@ -16,7 +16,7 @@ html, body {
     top: 0;
 }
 
-#c {
+#c, #b {
     background: #303030;
     display: block;
     height: 100%;
