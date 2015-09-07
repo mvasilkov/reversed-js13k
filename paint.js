@@ -108,7 +108,7 @@ function paintStripePattern() {
         canvas.moveTo(i, -cheight)
         canvas.lineTo(i, 2 * cheight)
     }
-    canvas.lineWidth = 1
+    canvas.lineWidth = 2
     canvas.stroke()
 
     canvas.restore()

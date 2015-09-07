@@ -99,6 +99,8 @@ function computeCharacter() {
 
 
     charAnimate((now >>> 6) % charAnimation.length)
+
+    return t
 }
 
 function mainloop() {
@@ -118,7 +120,7 @@ function mainloop() {
         }
     }
 
-    computeCharacter()
+    paintBackdrop(computeCharacter() * character.g)
 
     asciileft = character.x
     asciitop = character.y

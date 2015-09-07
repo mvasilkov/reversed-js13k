@@ -13,10 +13,10 @@ var asciizoom, asciizoomx = 1, asciizoomy = 1
 var asciileft = 0, asciitop = 0, asciireversed = false
 
 
-var $a = $('a'), $c = $('c'), $p = $('p')
+var $a = $('a'), $b = $('b'), $c = $('c'), $p = $('p')
 
-$c.width = cwidth
-$c.height = cheight
+$b.width = $c.width = cwidth
+$b.height = $c.height = cheight
 
 
 function handleResize() {
@@ -30,8 +30,8 @@ function handleResize() {
 
     sizeCSS($a, 'width', w)
     sizeCSS($a, 'height', h)
-    sizeCSS($c, 'left', left = 0.5 * (innerWidth - w))
-    sizeCSS($c, 'top', top = 0.5 * (innerHeight - h))
+    sizeCSS($a, 'left', left = 0.5 * (innerWidth - w))
+    sizeCSS($a, 'top', top = 0.5 * (innerHeight - h))
 
     /* ascii */
     sizeCSS($p, 'left', left)

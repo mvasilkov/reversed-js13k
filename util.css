@@ -11,15 +11,19 @@ html, body {
 }
 
 #a {
+    background: #303030;
+    position: absolute;
+}
+
+#b, #c {
+    display: block;
+    height: 100%;
     left: 0;
     position: absolute;
     top: 0;
+    width: 100%;
 }
 
-#c {
-    background: #303030;
-    display: block;
-    height: 100%;
-    position: relative;
-    width: 100%;
+#b {
+    background: linear-gradient(to bottom right, #344456 0%, #2C3948 100%);
 }
