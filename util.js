@@ -13,7 +13,8 @@ var asciizoom, asciizoomx = 1, asciizoomy = 1
 var asciileft = 0, asciitop = 0, asciireversed = false
 
 
-var $a = $('a'), $b = $('b'), $c = $('c'), $p = $('p')
+var $a = $('a'), $b = $('b'), $c = $('c'),
+    $p = $('p'), $s = $('s'), $t = $('t')
 
 $b.width = $c.width = cwidth
 $b.height = $c.height = cheight
@@ -39,6 +40,12 @@ function handleResize() {
 
     asciizoom = w / cwidth
     asciiUpdate()
+
+    $s.style[transformProperty] = 'scale('
+    + asciizoom + ')translate(600px,240px)'
+
+    $t.style[transformProperty] = 'scale('
+    + asciizoom + ')translate(40px,160px)'
 }
 
 

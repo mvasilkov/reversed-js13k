@@ -127,5 +127,13 @@ function mainloop() {
     asciiUpdate()
 }
 
-then = Date.now()
-requestAnimationFrame(mainloop)
+$s.addEventListener('click', function (event) {
+    event.preventDefault()
+
+    $s.style.display = $t.style.display = 'none'
+
+    initLevel(1)
+
+    then = Date.now()
+    requestAnimationFrame(mainloop)
+})
