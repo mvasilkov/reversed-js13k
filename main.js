@@ -103,6 +103,25 @@ function computeCharacter() {
     return t
 }
 
+
+var playingGame = false
+
+function idleMainloop() {
+    var now = Date.now()
+    var t = now - then
+    then = now
+
+    if (playingGame)
+        return
+
+    requestAnimationFrame(idleMainloop)
+
+    paintBackdrop(t * character.g)
+}
+
+then = Date.now()
+requestAnimationFrame(idleMainloop)
+
 function mainloop() {
     requestAnimationFrame(mainloop)
 
@@ -129,6 +148,8 @@ function mainloop() {
 
 $s.addEventListener('click', function (event) {
     event.preventDefault()
+
+    playingGame = true
 
     $s.style.display = $t.style.display = 'none'
 
