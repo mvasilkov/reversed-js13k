@@ -16,9 +16,9 @@ levels.push([
     '',
     '',
     '',
-    '',
-    '       xx       ',
-    '       xx       '
+    '      xxxx      ',
+    '      xxxx      ',
+    '      xxxx      '
 ])
 
 levels.push([

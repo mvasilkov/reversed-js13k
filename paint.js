@@ -15,10 +15,10 @@ function paintLevel(n) {
         }
     }
 
-    canvas.fillStyle = '#586E75'
+    canvas.fillStyle = pal.x
     canvas.fill()
 
-    canvas.fillStyle = canvas.strokeStyle = '#FFFBEB'
+    canvas.fillStyle = canvas.strokeStyle = pal.b
     n % 2? paintDotPattern(): paintStripePattern()
 
 
@@ -43,8 +43,31 @@ function paintLevel(n) {
         }
     }
 
-    canvas.fillStyle = '#F82406'
+    canvas.fillStyle = pal.w
     canvas.fill()
+
+    /* blood */
+
+    canvas.save()
+
+    canvas.beginPath()
+
+    for (i = 16; i--;) {
+        for (j = 9; j--;) {
+            if (level.a[j][i] == '^') {
+                canvas.rect(cellsize * i, cellsize * j, cellsize, 0.5 * cellsize)
+            }
+            else if (level.a[j][i] == 'v') {
+                canvas.rect(cellsize * i, cellsize * (j + 0.5), cellsize, 0.5 * cellsize)
+            }
+        }
+    }
+
+    canvas.globalCompositeOperation = 'source-atop'
+    canvas.fillStyle = pal.v
+    canvas.fill()
+
+    canvas.restore()
 
 
     canvas.beginPath()
@@ -57,7 +80,7 @@ function paintLevel(n) {
 
     canvas.lineCap = 'square'
     canvas.lineWidth = 2
-    canvas.strokeStyle = '#EEFF41'
+    canvas.strokeStyle = pal.p
     canvas.stroke()
 }
 

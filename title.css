@@ -1,5 +1,4 @@
 #s, #t {
-    color: #fff;
     font: 40px/60px 'Segoe UI', 'Helvetica Neue', sans-serif;
     left: 0;
     position: absolute;
@@ -11,12 +10,16 @@
 }
 
 #s {
-    background: #FF4500;
+    background: #E1FF5F;
+    color: #101010;
+    outline: 1px solid #E1FF5F;
+    outline-offset: 1px;
     text-decoration: none;
 }
 
 #t {
     background: rgba(0,0,0,0.5);
+    color: #fff;
     font-size: 20px;
     -webkit-font-smoothing: antialiased;
     line-height: 40px;

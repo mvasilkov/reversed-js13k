@@ -25,5 +25,6 @@ html, body {
 }
 
 #b {
+    background: #2C3948;
     background: linear-gradient(to bottom right, #344456 0%, #2C3948 100%);
 }
