@@ -127,6 +127,7 @@ function mainloop() {
 
     if (character.x + character.width > 940) {
         character = initCharacter()
+        nextPalette()
         initLevel(currentLevel + 1)
     }
 
@@ -153,6 +154,7 @@ $s.addEventListener('click', function (event) {
 
     $s.style.display = $t.style.display = 'none'
 
+    nextPalette()
     initLevel(1)
 
     then = Date.now()

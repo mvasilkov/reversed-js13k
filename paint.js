@@ -43,7 +43,7 @@ function paintLevel(n) {
         }
     }
 
-    canvas.fillStyle = pal.w
+    canvas.fillStyle = '#FEFDFB'
     canvas.fill()
 
     /* blood */
@@ -64,7 +64,7 @@ function paintLevel(n) {
     }
 
     canvas.globalCompositeOperation = 'source-atop'
-    canvas.fillStyle = pal.v
+    canvas.fillStyle = '#FE0302'
     canvas.fill()
 
     canvas.restore()
