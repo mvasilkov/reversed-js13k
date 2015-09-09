@@ -16,16 +16,24 @@ html, body {
     position: absolute;
 }
 
-#b, #c {
+#b, #c, #i {
     display: block;
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     width: 100%;
 }
 
 #b {
     background: #2C3948;
     background: linear-gradient(to bottom right, #344456 0%, #2C3948 100%);
+}
+
+#i {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAQAAAAziH6sAAAADklEQVR4AWNmMGb+zwAAAusBObK7SDsAAAAASUVORK5CYII=);
+    pointer-events: none;
+    z-index: 10;
 }

@@ -12,8 +12,8 @@
 #s {
     background: #E1FF5F;
     color: #101010;
-    outline: 1px solid #E1FF5F;
-    outline-offset: 1px;
+    outline: 2px solid #E1FF5F;
+    outline-offset: 2px;
     text-decoration: none;
 }
 
