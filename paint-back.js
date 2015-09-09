@@ -38,11 +38,11 @@ function drawStars(stars, size, color, offset) {
         s.y -= offset
         if (s.y < cellsize) {
             s.x = rnd(0, cwidth - size)
-            s.y = cheight - cellsize
+            s.y += cheight
         }
         else if (s.y > cheight - cellsize) {
             s.x = rnd(0, cwidth - size)
-            s.y = cellsize
+            s.y -= cheight
         }
 
         bgcanvas.rect(s.x, s.y, size, size)
