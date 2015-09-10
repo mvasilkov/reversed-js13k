@@ -104,11 +104,13 @@ function paintDotPattern() {
     canvas.globalCompositeOperation = 'source-atop'
 
     for (i = -pad; i < cwidth / step + pad; ++i) {
+        canvas.beginPath()
+
         for (j = -pad; j < cheight / step + pad; ++j) {
-            canvas.beginPath()
             canvas.arc((i + 0.5) * step, (j + 0.5) * step, thickness += inc, 0, 2 * Math.PI)
-            canvas.fill()
         }
+
+        canvas.fill()
     }
 
     canvas.restore()
