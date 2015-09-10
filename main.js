@@ -147,16 +147,23 @@ function mainloop() {
     asciiUpdate()
 }
 
-$s.addEventListener('click', function (event) {
+function newGame(event) {
     event.preventDefault()
+
+    if (playingGame)
+        return
 
     playingGame = true
 
     $s.style.display = $t.style.display = 'none'
+    $i.style.pointerEvents = 'auto'
 
     nextPalette()
     initLevel(1)
 
     then = Date.now()
     requestAnimationFrame(mainloop)
-})
+}
+
+$s.addEventListener('click', newGame)
+$s.addEventListener('touchstart', newGame)

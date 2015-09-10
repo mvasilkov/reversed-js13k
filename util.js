@@ -12,9 +12,9 @@ var cwidth = 960, cheight = 540, aspect = 16 / 9
 var asciizoom, asciizoomx = 1, asciizoomy = 1
 var asciileft = 0, asciitop = 0, asciireversed = false
 
-
-var $a = $('a'), $b = $('b'), $c = $('c'),
-    $p = $('p'), $s = $('s'), $t = $('t')
+for (var varname in {a: 1, b: 1, c: 1, i: 1, p: 1, s: 1, t: 1}) {
+    window['$' + varname] = $(varname)
+}
 
 $b.width = $c.width = cwidth
 $b.height = $c.height = cheight

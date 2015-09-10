@@ -5,9 +5,14 @@ function flipGravity() {
 
 function handleSpacebar(event) {
     if (event.which == 32 || event.keyCode == 32) {
-        event.preventDefault()
-        flipGravity()
+        handleTouch(event)
     }
 }
 
-document.body.addEventListener('keypress', handleSpacebar)
+function handleTouch(event) {
+    event.preventDefault()
+    flipGravity()
+}
+
+document.body.addEventListener('keyup', handleSpacebar)
+$i.addEventListener('touchstart', handleTouch)
