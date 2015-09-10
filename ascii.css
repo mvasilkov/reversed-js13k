@@ -2,7 +2,7 @@
  * Copyright (c) 2015 Mark Vasilkov (https://github.com/mvasilkov)
  * License: MIT */
 
-p {
+p, .t {
     color: #fff;
     font: 15px/1 'Courier New', 'PT Mono', 'Andale Mono', monospace;
     /* -webkit-font-smoothing: antialiased; */
@@ -16,6 +16,10 @@ p {
 p.a1, p.a2, p.a4, p.a5 {
     -webkit-transform: translateY(-9px);
     transform: translateY(-9px);
+}
+
+p .b {
+    display: none;
 }
 
 #p {

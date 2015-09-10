@@ -1,12 +1,54 @@
+var badChars = '▄▀█░'
+
+function getCharWidth(c) {
+    var $t = document.createElement('span')
+
+    $t.appendChild(document.createTextNode(c))
+    $t.className = 't'
+    $p.appendChild($t)
+
+    var x = $t.offsetWidth
+
+    $p.removeChild($t)
+
+    return x
+}
+
+var charWidthCache = {}
+for (var bci = badChars.length; bci--;) {
+    var bc = badChars[bci]
+    charWidthCache[bc] = getCharWidth(bc)
+}
+
+var goodCharWidth = getCharWidth('x')
+var css = '.let{display:inline-block;width:' + goodCharWidth + 'px}'
+
 var charAnimation = charMovingParts.map(function (a) {
-    return charStaticPart + a
+    return (charStaticPart + a).replace(/./g, function (c) {
+        if (c in charWidthCache && charWidthCache[c] != goodCharWidth)
+            return '<span class=let>' + c + '</span>'
+        return c
+    })
 })
 
+
 var $character = document.createElement('p')
-var charTextNode = document.createTextNode(charAnimation[0])
+
+charAnimation.forEach(function (a, n) {
+    var $b = document.createElement('span')
+
+    $b.className = 'b b' + n
+    $b.innerHTML = charAnimation[n]
+    $character.appendChild($b)
+
+    css += 'p.a' + n + ' .b' + n + '{display:block}'
+})
+
+var style = document.createElement('style')
+style.appendChild(document.createTextNode(css))
+document.head.appendChild(style)
 
 $character.className = 'a' + 0
-$character.appendChild(charTextNode)
 $p.appendChild($character)
 
 
@@ -21,5 +63,4 @@ handleResize()
 
 function charAnimate(frame) {
     $character.className = 'a' + frame
-    charTextNode.nodeValue = charAnimation[frame]
 }
