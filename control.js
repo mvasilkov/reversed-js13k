@@ -15,4 +15,5 @@ function handleTouch(event) {
 }
 
 document.body.addEventListener('keyup', handleSpacebar)
+$i.addEventListener('click', handleTouch)
 $i.addEventListener('touchstart', handleTouch)
