@@ -1,5 +1,12 @@
 var badChars = '▄▀█░'
 
+var compatibleChars = {
+    '▄': 'n',
+    '▀': '*',
+    '█': 'Ш',
+    '░': '/'
+}
+
 function getCharWidth(c) {
     var $t = document.createElement('span')
 
@@ -14,31 +21,31 @@ function getCharWidth(c) {
     return x
 }
 
-var charWidthCache = {}
-for (var bci = badChars.length; bci--;) {
-    var bc = badChars[bci]
-    charWidthCache[bc] = getCharWidth(bc)
-}
-
 var goodCharWidth = getCharWidth('x')
-var css = '.let{display:inline-block;width:' + goodCharWidth + 'px}'
+var haveRenderingProblems = false
+
+for (var bci = badChars.length; bci--;) {
+    if (getCharWidth(badChars[bci]) != goodCharWidth) {
+        haveRenderingProblems = true
+        break
+    }
+}
 
 var charAnimation = charMovingParts.map(function (a) {
     return (charStaticPart + a).replace(/./g, function (c) {
-        if (c in charWidthCache && charWidthCache[c] != goodCharWidth)
-            return '<span class=let>' + c + '</span>'
-        return c
+        return (haveRenderingProblems && compatibleChars[c])? compatibleChars[c]: c
     })
 })
 
 
 var $character = document.createElement('p')
+var css = ''
 
 charAnimation.forEach(function (a, n) {
     var $b = document.createElement('span')
 
     $b.className = 'b b' + n
-    $b.innerHTML = charAnimation[n]
+    $b.appendChild(document.createTextNode(charAnimation[n]))
     $character.appendChild($b)
 
     css += 'p.a' + n + ' .b' + n + '{display:block}'
@@ -48,7 +55,7 @@ var style = document.createElement('style')
 style.appendChild(document.createTextNode(css))
 document.head.appendChild(style)
 
-$character.className = 'a' + 0
+$character.className = 'a5'
 $p.appendChild($character)
 
 

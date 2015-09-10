@@ -13,6 +13,11 @@ p, .t {
     white-space: pre;
 }
 
+/* Android */
+.and p, .and .t {
+    font-family: 'Droid Sans Mono', monospace;
+}
+
 p.a1, p.a2, p.a4, p.a5 {
     -webkit-transform: translateY(-9px);
     transform: translateY(-9px);
