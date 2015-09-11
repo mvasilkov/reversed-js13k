@@ -60,7 +60,7 @@ function loadLevel(ascii) {
     }
 
     platforms.sort(function (a, b) {
-        return b.y - a.y
+        return b[0].y - a[0].y
     })
 
 
@@ -106,7 +106,7 @@ function loadLevel(ascii) {
     }
 
     walls.sort(function (a, b) {
-        return b.y - a.y
+        return b[0].x - a[0].x
     })
 
 

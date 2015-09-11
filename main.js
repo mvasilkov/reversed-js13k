@@ -14,7 +14,7 @@ function initCharacter() {
 
 function initLevel(level) {
     if (level >= levels.length) {
-        // TODO ending
+        /* Should not happen */
         level = levels.length - 1
     }
 
@@ -22,6 +22,10 @@ function initLevel(level) {
     platforms = levels[level].p
     walls = levels[level].w
     spikes = levels[level].s
+
+    if (level == levels.length - 1) {
+        paintEnding()
+    }
 }
 
 var character = initCharacter()
@@ -158,6 +162,7 @@ function newGame(event) {
     $s.style.display = $t.style.display = 'none'
     $i.style.pointerEvents = 'auto'
 
+    character = initCharacter()
     nextPalette()
     initLevel(1)
 
@@ -167,3 +172,5 @@ function newGame(event) {
 
 $s.addEventListener('click', newGame)
 $s.addEventListener('touchstart', newGame)
+
+//newGame({preventDefault: function(){}})

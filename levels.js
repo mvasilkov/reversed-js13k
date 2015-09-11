@@ -40,3 +40,14 @@ levels.push([
     '',
     '       ^^^^^^   '
 ])
+
+/* Ending level */
+levels.push([
+    '',
+    'xxxxx           ',
+    '    x           ',
+    '    x           ',
+    '    x           ',
+    'xxxxx           ',
+    ''
+])
