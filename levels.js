@@ -74,6 +74,6 @@ levels.push([
 
 
 /* Export to build */
-if (module && module.exports) {
+if (typeof module != 'undefined' && module.exports) {
     exports.levels = levels
 }

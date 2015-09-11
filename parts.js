@@ -17,7 +17,7 @@ var charMovingParts = [
 
 
 /* Export to build */
-if (module && module.exports) {
+if (typeof module != 'undefined' && module.exports) {
     exports.charStaticPart = charStaticPart
     exports.charMovingParts = charMovingParts
 }

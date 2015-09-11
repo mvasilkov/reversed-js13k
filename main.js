@@ -102,7 +102,7 @@ function computeCharacter() {
     character.velocityx = expectation.velocityy
 
 
-    charAnimate((now >>> 6) % charAnimation.length)
+    charAnimate((now >>> 6) % 6 /* charAnimation.length */)
 
     return t
 }
