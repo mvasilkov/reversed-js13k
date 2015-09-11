@@ -51,3 +51,9 @@ levels.push([
     'xxxxx           ',
     ''
 ])
+
+
+/* Export to build */
+if (module && module.exports) {
+    exports.levels = levels
+}
