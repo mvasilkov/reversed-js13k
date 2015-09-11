@@ -93,38 +93,42 @@ function paintLevel(n) {
     canvas.strokeStyle = pal.p
     canvas.stroke()
 
-    /* level name */
+    /* level name and protip */
+
+    setFontSize(25)
 
     if (levelNames[n]) {
-        setFontSize(25)
-        var levelName = levelNames[n] // ' (Level ' + n + ' of ' + (levels.length - 1) + ')'
-        var levelNameWidth = canvas.measureText(levelName).width
-        var levelNamePadding = 0.5 * (cwidth - levelNameWidth)
-        /** @const */ var levelNameTop = 496
-        /** @const */ var levelNameMiddle = 512
-        /** @const */ var levelNameBottom = 528
-        /** @const */ var levelNameCap = 16
-
-        canvas.beginPath()
-
-        canvas.moveTo(levelNamePadding, levelNameTop)
-        canvas.lineTo(cwidth - levelNamePadding, levelNameTop)
-        canvas.quadraticCurveTo(cwidth - levelNamePadding + levelNameCap, levelNameTop,
-                                cwidth - levelNamePadding + levelNameCap, levelNameMiddle)
-        canvas.quadraticCurveTo(cwidth - levelNamePadding + levelNameCap, levelNameBottom,
-                                cwidth - levelNamePadding, levelNameBottom)
-        canvas.lineTo(levelNamePadding, levelNameBottom)
-        canvas.quadraticCurveTo(levelNamePadding - levelNameCap, levelNameBottom,
-                                levelNamePadding - levelNameCap, levelNameMiddle)
-        canvas.quadraticCurveTo(levelNamePadding - levelNameCap, levelNameTop,
-                                levelNamePadding, levelNameTop)
-
-        canvas.fillStyle = 'rgba(0,0,0,0.5)'
-        canvas.fill()
-
-        canvas.fillStyle = '#fff'
-        canvas.fillText(levelName, 0.5 * cwidth, 521, 900)
+        paintTextBlob(levelNames[n], 521, '#fff')
     }
+
+    if (tutorials[n]) {
+        paintTextBlob('PROTIP: ' + tutorials[n], 40, '#FEFED5')
+    }
+}
+
+function paintTextBlob(text, baseline, color) {
+    var cap = 16
+    var top = baseline - 25
+    var middle = top + cap
+    var bottom = middle + cap
+    var len = canvas.measureText(text).width
+    var pad = 0.5 * (cwidth - len)
+
+    canvas.beginPath()
+
+    canvas.moveTo(pad, top)
+    canvas.lineTo(cwidth - pad, top)
+    canvas.quadraticCurveTo(cwidth - pad + cap, top, cwidth - pad + cap, middle)
+    canvas.quadraticCurveTo(cwidth - pad + cap, bottom, cwidth - pad, bottom)
+    canvas.lineTo(pad, bottom)
+    canvas.quadraticCurveTo(pad - cap, bottom, pad - cap, middle)
+    canvas.quadraticCurveTo(pad - cap, top, pad, top)
+
+    canvas.fillStyle = 'rgba(0,0,0,0.5)'
+    canvas.fill()
+
+    canvas.fillStyle = color
+    canvas.fillText(text, 0.5 * cwidth, baseline, 900)
 }
 
 // TODO test whether (i += 0.25) results in a smaller zipball

@@ -1,5 +1,6 @@
 var levels = []
 var levelNames = []
+var tutorials = []
 
 /* Title screen */
 levelNames.push('')
@@ -13,6 +14,7 @@ levels.push([
     '       xx       ',
     '                '
 ])
+tutorials.push('')
 
 levelNames.push('One small step for a man')
 levels.push([
@@ -24,6 +26,7 @@ levels.push([
     '      xxxx      ',
     '      xxxx      '
 ])
+tutorials.push('Click or tap anywhere on the screen to invert gravity')
 
 levelNames.push('Walk softly')
 levels.push([
@@ -35,6 +38,7 @@ levels.push([
     '',
     '     ^^         '
 ])
+tutorials.push('Avoid spikes: they kill you to death!')
 
 levelNames.push('Overpass')
 levels.push([
@@ -46,6 +50,7 @@ levels.push([
     '',
     '       ^^^^^^   '
 ])
+tutorials.push('')
 
 levelNames.push('Easy mode')
 levels.push([
@@ -57,6 +62,7 @@ levels.push([
     '         xx     ',
     '         xx     '
 ])
+tutorials.push('')
 
 levelNames.push('Cowards die in shame')
 levels.push([
@@ -68,6 +74,7 @@ levels.push([
     '        ^^      ',
     '        xx      '
 ])
+tutorials.push('')
 
 /* Ending level */
 levelNames.push('This was a triumph')
@@ -80,10 +87,12 @@ levels.push([
     'xxxxx           ',
     ''
 ])
+tutorials.push('Reload the page to start a new game')
 
 
 /* Export to build */
 if (typeof module != 'undefined' && module.exports) {
     exports.levels = levels
     exports.levelNames = levelNames
+    exports.tutorials = tutorials
 }
