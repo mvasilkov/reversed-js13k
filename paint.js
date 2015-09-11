@@ -98,15 +98,15 @@ function paintLevel(n) {
     setFontSize(25)
 
     if (levelNames[n]) {
-        paintTextBlob(levelNames[n], 521, '#fff')
+        paintTextBlob(levelNames[n], 521)
     }
 
     if (tutorials[n]) {
-        paintTextBlob('PROTIP: ' + tutorials[n], 40, '#FEFED5')
+        paintTextBlob('PROTIP: ' + tutorials[n], 40)
     }
 }
 
-function paintTextBlob(text, baseline, color) {
+function paintTextBlob(text, baseline) {
     var cap = 16
     var top = baseline - 25
     var middle = top + cap
@@ -127,7 +127,7 @@ function paintTextBlob(text, baseline, color) {
     canvas.fillStyle = 'rgba(0,0,0,0.5)'
     canvas.fill()
 
-    canvas.fillStyle = color
+    canvas.fillStyle = '#fff'
     canvas.fillText(text, 0.5 * cwidth, baseline, 900)
 }
 

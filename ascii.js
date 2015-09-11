@@ -64,7 +64,7 @@ var playerwidth = 92, playerheight = 90
 asciizoomx = playerwidth / $character.clientWidth
 asciizoomy = playerheight / $character.clientHeight
 asciileft = 0.5 * (cwidth - playerwidth)
-asciitop = 0.5 * (cheight - playerheight)
+asciitop = 274
 handleResize()
 
 

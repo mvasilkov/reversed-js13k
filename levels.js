@@ -7,12 +7,12 @@ levelNames.push('')
 /* Level is 16 x 9, but lines 0 and 8 are the same across all levels */
 levels.push([
     '                ',
+    '     xxx        ',
+    '     x          ',
     '                ',
     '                ',
-    '                ',
-    '                ',
-    '       xx       ',
-    '                '
+    '   xx  xx   x   ',
+    '   xx   xx xxx  '
 ])
 tutorials.push('')
 
@@ -61,6 +61,18 @@ levels.push([
     '',
     '         xx     ',
     '         xx     '
+])
+tutorials.push('')
+
+levelNames.push('Go precisely')
+levels.push([
+    '      vvxxvv    ',
+    '        xx      ',
+    '                ',
+    '                ',
+    '                ',
+    '                ',
+    '        ^^      '
 ])
 tutorials.push('')
 
