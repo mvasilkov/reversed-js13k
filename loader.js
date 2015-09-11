@@ -137,6 +137,7 @@ function loadLevel(ascii) {
     return {a: ascii, p: platforms, w: walls, s: spikes}
 }
 
+/** @param {...number} inc */
 function toCoordinates(b, inc) {
     var a = cellsize * (b[1] + (0|inc))
 
@@ -146,6 +147,7 @@ function toCoordinates(b, inc) {
     ]
 }
 
+/** @param {...number} inc */
 function toCoordinates2(b, inc) {
     var a = cellsize * (b[0] + (0|inc))
 

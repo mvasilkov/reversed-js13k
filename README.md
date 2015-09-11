@@ -12,3 +12,8 @@ On mobile, both Safari (iOS) and Chrome (Android) are supported. Safari is much 
 ASCII art is problematic on Android. While not game-breaking, it's implemented differently and looks slightly worse.
 
 The game is better suited for landscape mode.
+
+## Build
+
+    npm i -g google-closure-compiler
+    make

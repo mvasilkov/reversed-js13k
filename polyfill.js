@@ -5,6 +5,6 @@ if (typeof requestAnimationFrame == 'undefined') {
             return requestAnimationFrame = fun
         }
     }) || (requestAnimationFrame = function (fun) {
-        setTimeout(fun, 16)
+        return setTimeout(fun, 16)
     })
 }

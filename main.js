@@ -137,7 +137,7 @@ function mainloop() {
 
     /* did he dieded? */
 
-    for (i = spikes.length; i--;) {
+    for (var i = spikes.length; i--;) {
         if (overlap(character, spikes[i])) {
             character = initCharacter()
             break
