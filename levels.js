@@ -1,6 +1,9 @@
 var levels = []
+var levelNames = []
 
-/* 16 x 9, but lines 0 and 8 are the same across all levels */
+/* Title screen */
+levelNames.push('')
+/* Level is 16 x 9, but lines 0 and 8 are the same across all levels */
 levels.push([
     '                ',
     '                ',
@@ -11,6 +14,7 @@ levels.push([
     '                '
 ])
 
+levelNames.push('One small step for a man')
 levels.push([
     '',
     '',
@@ -21,6 +25,7 @@ levels.push([
     '      xxxx      '
 ])
 
+levelNames.push('Walk softly')
 levels.push([
     '           vv   ',
     '',
@@ -31,6 +36,7 @@ levels.push([
     '     ^^         '
 ])
 
+levelNames.push('Overpass')
 levels.push([
     '   vvvvvv       ',
     '',
@@ -41,27 +47,30 @@ levels.push([
     '       ^^^^^^   '
 ])
 
+levelNames.push('Easy mode')
 levels.push([
-    '  vvvv     vvvv ',
+    '   vvvv    vvvv ',
     '',
     '',
     '',
     '',
-    '',
-    '        x       '
+    '         xx     ',
+    '         xx     '
 ])
 
+levelNames.push('Cowards die in shame')
 levels.push([
-    '       xx       ',
-    '       vv       ',
-    '   ^       ^    ',
-    '   x       x    ',
-    '   v       v    ',
+    '    vvvvxxvvv   ',
     '                ',
-    '   x^^^xx^^^x   '
+    '    ^       ^   ',
+    '   <x       x>  ',
+    '    v       v   ',
+    '        ^^      ',
+    '        xx      '
 ])
 
 /* Ending level */
+levelNames.push('This was a triumph')
 levels.push([
     '',
     'xxxxx           ',
@@ -76,4 +85,5 @@ levels.push([
 /* Export to build */
 if (typeof module != 'undefined' && module.exports) {
     exports.levels = levels
+    exports.levelNames = levelNames
 }

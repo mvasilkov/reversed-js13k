@@ -1,6 +1,9 @@
 var canvas = $c.getContext('2d')
 
-canvas.font = "40px 'Segoe UI','Helvetica Neue',sans-serif"
+function setFontSize(n) {
+    canvas.font = n + "px 'Segoe UI','Helvetica Neue',sans-serif"
+}
+
 canvas.textAlign = 'center'
 
 function paintLevel(n) {
@@ -89,6 +92,39 @@ function paintLevel(n) {
     canvas.lineWidth = 2
     canvas.strokeStyle = pal.p
     canvas.stroke()
+
+    /* level name */
+
+    if (levelNames[n]) {
+        setFontSize(25)
+        var levelName = levelNames[n] // ' (Level ' + n + ' of ' + (levels.length - 1) + ')'
+        var levelNameWidth = canvas.measureText(levelName).width
+        var levelNamePadding = 0.5 * (cwidth - levelNameWidth)
+        /** @const */ var levelNameTop = 496
+        /** @const */ var levelNameMiddle = 512
+        /** @const */ var levelNameBottom = 528
+        /** @const */ var levelNameCap = 16
+
+        canvas.beginPath()
+
+        canvas.moveTo(levelNamePadding, levelNameTop)
+        canvas.lineTo(cwidth - levelNamePadding, levelNameTop)
+        canvas.quadraticCurveTo(cwidth - levelNamePadding + levelNameCap, levelNameTop,
+                                cwidth - levelNamePadding + levelNameCap, levelNameMiddle)
+        canvas.quadraticCurveTo(cwidth - levelNamePadding + levelNameCap, levelNameBottom,
+                                cwidth - levelNamePadding, levelNameBottom)
+        canvas.lineTo(levelNamePadding, levelNameBottom)
+        canvas.quadraticCurveTo(levelNamePadding - levelNameCap, levelNameBottom,
+                                levelNamePadding - levelNameCap, levelNameMiddle)
+        canvas.quadraticCurveTo(levelNamePadding - levelNameCap, levelNameTop,
+                                levelNamePadding, levelNameTop)
+
+        canvas.fillStyle = 'rgba(0,0,0,0.5)'
+        canvas.fill()
+
+        canvas.fillStyle = '#fff'
+        canvas.fillText(levelName, 0.5 * cwidth, 521, 900)
+    }
 }
 
 // TODO test whether (i += 0.25) results in a smaller zipball

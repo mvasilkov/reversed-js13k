@@ -8,6 +8,7 @@ function paintEnding() {
 
     drawBubble(380, 100, 360, 200, 40, 700, 330)
 
+    setFontSize(40)
     canvas.fillStyle = '#101010'
     canvas.fillText('You\'ve beat the game,', 560, 150, 320)
     canvas.fillText('ASCII person.', 560, 192, 320)
