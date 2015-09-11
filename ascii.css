@@ -4,7 +4,8 @@
 
 p, .t {
     color: #fff;
-    font: 15px/1 'Courier New', 'PT Mono', 'Andale Mono', monospace;
+    /* Liberation Mono also works, but I don't like it. */
+    font: 15px/1 'DejaVu Sans Mono', 'FreeMono', 'Courier New', 'PT Mono', 'Andale Mono', monospace;
     /* -webkit-font-smoothing: antialiased; */
     margin: 0;
     position: relative;
