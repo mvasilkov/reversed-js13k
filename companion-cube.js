@@ -1,9 +1,9 @@
-var ccsize = 8
-var ccOutline = '#fff'
-var ccLight = '#E5DDDC'
-var ccDark = '#7C7B7C'
-var ccPink = '#F9B6C3'
-var ccPink2 = '#F478A0'
+/** @const */ var ccsize = 8
+/** @const */ var ccOutline = '#fff'
+/** @const */ var ccLight = '#E5DDDC'
+/** @const */ var ccDark = '#7C7B7C'
+/** @const */ var ccPink = '#F9B6C3'
+/** @const */ var ccPink2 = '#F478A0'
 
 function do4(fun) {
     for (var i = 4; i--;) {

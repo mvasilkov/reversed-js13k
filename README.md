@@ -15,5 +15,5 @@ The game is better suited for landscape mode.
 
 ## Build
 
-    npm i -g google-closure-compiler
+    npm i -g google-closure-compiler html-minifier clean-css
     make
