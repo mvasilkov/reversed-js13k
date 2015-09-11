@@ -1,5 +1,8 @@
 var canvas = $c.getContext('2d')
 
+canvas.font = "40px 'Segoe UI','Helvetica Neue',sans-serif"
+canvas.textAlign = 'center'
+
 function paintLevel(n) {
     var i, j
     var level = levels[n]
@@ -27,18 +30,16 @@ function paintLevel(n) {
     for (i = 16; i--;) {
         for (j = 9; j--;) {
             if (level.a[j][i] == '^') {
-                canvas.moveTo(cellsize * i, cellsize * (j + 1))
-                canvas.lineTo(cellsize * (i + 0.25), cellsize * j)
-                canvas.lineTo(cellsize * (i + 0.5), cellsize * (j + 1))
-                canvas.lineTo(cellsize * (i + 0.75), cellsize * j)
-                canvas.lineTo(cellsize * (i + 1), cellsize * (j + 1))
+                paintSpikes(i, j, 0)
             }
             else if (level.a[j][i] == 'v') {
-                canvas.moveTo(cellsize * i, cellsize * j)
-                canvas.lineTo(cellsize * (i + 0.25), cellsize * (j + 1))
-                canvas.lineTo(cellsize * (i + 0.5), cellsize * j)
-                canvas.lineTo(cellsize * (i + 0.75), cellsize * (j + 1))
-                canvas.lineTo(cellsize * (i + 1), cellsize * j)
+                paintSpikes(i, j, 1)
+            }
+            else if (level.a[j][i] == '<') {
+                paintSpikes2(i, j, 0)
+            }
+            else if (level.a[j][i] == '>') {
+                paintSpikes2(i, j, 1)
             }
         }
     }
@@ -59,6 +60,12 @@ function paintLevel(n) {
             }
             else if (level.a[j][i] == 'v') {
                 canvas.rect(cellsize * i, cellsize * (j + 0.5), cellsize, 0.5 * cellsize)
+            }
+            else if (level.a[j][i] == '<') {
+                canvas.rect(cellsize * i, cellsize * j, 0.5 * cellsize, cellsize)
+            }
+            else if (level.a[j][i] == '>') {
+                canvas.rect(cellsize * (i + 0.5), cellsize * j, 0.5 * cellsize, cellsize)
             }
         }
     }
@@ -82,6 +89,23 @@ function paintLevel(n) {
     canvas.lineWidth = 2
     canvas.strokeStyle = pal.p
     canvas.stroke()
+}
+
+// TODO test whether (i += 0.25) results in a smaller zipball
+function paintSpikes(i, j, x) {
+    canvas.moveTo(cellsize * i, cellsize * (j + (x ^= 1)))
+    canvas.lineTo(cellsize * (i + 0.25), cellsize * (j + (x ^= 1)))
+    canvas.lineTo(cellsize * (i + 0.5), cellsize * (j + (x ^= 1)))
+    canvas.lineTo(cellsize * (i + 0.75), cellsize * (j + (x ^= 1)))
+    canvas.lineTo(cellsize * (i + 1), cellsize * (j + (x ^= 1)))
+}
+
+function paintSpikes2(i, j, x) {
+    canvas.moveTo(cellsize * (i + (x ^= 1)), cellsize * j)
+    canvas.lineTo(cellsize * (i + (x ^= 1)), cellsize * (j + 0.25))
+    canvas.lineTo(cellsize * (i + (x ^= 1)), cellsize * (j + 0.5))
+    canvas.lineTo(cellsize * (i + (x ^= 1)), cellsize * (j + 0.75))
+    canvas.lineTo(cellsize * (i + (x ^= 1)), cellsize * (j + 1))
 }
 
 function paintDotPattern() {

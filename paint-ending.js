@@ -9,8 +9,6 @@ function paintEnding() {
     drawBubble(380, 100, 360, 200, 40, 700, 330)
 
     canvas.fillStyle = '#101010'
-    canvas.font = "40px 'Segoe UI','Helvetica Neue',sans-serif"
-    canvas.textAlign = 'center'
     canvas.fillText('You\'ve beat the game,', 560, 150, 320)
     canvas.fillText('ASCII person.', 560, 192, 320)
     canvas.fillText('But your princess is', 560, 234, 320)
