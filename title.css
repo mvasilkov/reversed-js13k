@@ -57,7 +57,7 @@
 }
 
 #m {
-    -moz-appearance: none;
+    /* -moz-appearance: none; */
     -webkit-appearance: none;
     height: 24px;
     margin: 0 5px;
