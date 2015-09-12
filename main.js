@@ -193,8 +193,8 @@ var mcount = 0
 
 function doMusic(t) {
     mcount += t
-    if (mcount >= 333) {
-        mcount = mcount % 333
+    if (mcount >= 300) {
+        mcount = mcount % 300
         playLoop()
     }
 }

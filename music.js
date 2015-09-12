@@ -98,7 +98,7 @@ function initializeMusic() {
 
     gainNode = audioContext.createGain()
     gainNode.connect(audioContext.destination)
-    gainNode.gain.value = 0.333
+    gainNode.gain.value = 0.3
 }
 
 
