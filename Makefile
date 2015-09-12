@@ -22,4 +22,11 @@ html: build/index.inline.html
 css: util.css ascii.css title.css
 	cleancss --output build/app.css $^
 
-.PHONY: app closure html css
+audiotest: audiotestclosure
+
+audiotestclosure: lib/webaudiox.shim.js lib/webaudiox.lineout.js lib/webaudiox.loadbuffer.js \
+    lib/webaudiox.bytetonormalizedfloat32array.js lib/webaudiox.jsfx.js lib/audio.js \
+    lib/jsfx.js lib/jsfxlib.js audio-test.js
+	$(cc) $(cc_opt) $^ > build/audiotest.js
+
+.PHONY: app closure html css audiotest audiotestclosure
