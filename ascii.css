@@ -4,8 +4,13 @@
 
 p, .t {
     color: #fff;
-    /* Liberation Mono also works, but I don't like it. */
-    font: 15px/1 'DejaVu Sans Mono', 'FreeMono', 'Courier New', 'PT Mono', 'Andale Mono', monospace;
+
+    /* Fonts that support box drawing characters. */
+    /* Bad news about Android: there are none. Android sucks. */
+    font: 15px/1 'DejaVu Sans Mono', 'FreeMono', 'Courier New', 'Consolas', 'PT Mono', monospace;
+    /* Liberation Mono works, but I don't like it. */
+    /* Lucida Console: same thing. */
+
     /* -webkit-font-smoothing: antialiased; */
     margin: 0;
     position: relative;

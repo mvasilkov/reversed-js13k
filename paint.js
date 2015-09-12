@@ -28,6 +28,8 @@ function paintLevel(n) {
     n % 2? paintDotPattern(): paintStripePattern()
 
 
+    var cs09 = 0.9 * cellsize
+
     canvas.beginPath()
 
     for (i = 16; i--;) {
@@ -43,6 +45,11 @@ function paintLevel(n) {
             }
             else if (level.a[j][i] == '>') {
                 paintSpikes2(i, j, 1)
+            }
+            /* decorative */
+            else if (level.a[j][i] == '(') {
+                canvas.fillStyle = '#FFEB3B'
+                canvas.fillRect(cs09 * i + 48, cs09 * (j + 0.5) + 27, cs09, cs09)
             }
         }
     }
@@ -98,7 +105,7 @@ function paintLevel(n) {
     setFontSize(25)
 
     if (levelNames[n]) {
-        paintTextBlob(levelNames[n], 521)
+        paintTextBlob('"' + levelNames[n] + '"', 521)
     }
 
     if (tutorials[n]) {

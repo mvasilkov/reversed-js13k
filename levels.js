@@ -64,15 +64,63 @@ levels.push([
 ])
 tutorials.push('')
 
-levelNames.push('Go precisely')
+levelNames.push('Jumpy behavior')
 levels.push([
-    '      vvxxvv    ',
-    '        xx      ',
+    '      vvvv      ',
     '                ',
     '                ',
     '                ',
     '                ',
-    '        ^^      '
+    '       xx       ',
+    '       xx       '
+])
+tutorials.push('Click or tap in rapid succession while running')
+
+levelNames.push('Tetris all the way down')
+levels.push([
+    '        vv   vvx',
+    '     xxx       x',
+    '     x         x',
+    '               x',
+    '                ',
+    '   xx  xx   x   ',
+    '   xx^^ xx xxx  '
+])
+tutorials.push('')
+
+levelNames.push('Timing attack')
+levels.push([
+    '     vvxxvv     ',
+    '       xx       ',
+    '                ',
+    '                ',
+    '                ',
+    '                ',
+    '       ^^       '
+])
+tutorials.push('')
+
+levelNames.push('Reason to fly')
+levels.push([
+    '    vvvvvv      ',
+    '                ',
+    '                ',
+    '                ',
+    '      xxxx      ',
+    '                ',
+    '      ^^^^^^    '
+])
+tutorials.push('')
+
+levelNames.push('A door into summer')
+levels.push([
+    '    <x    <x    ',
+    '          <x    ',
+    '                ',
+    '                ',
+    '                ',
+    '           <x   ',
+    '     <x    <x   '
 ])
 tutorials.push('')
 
@@ -85,6 +133,19 @@ levels.push([
     '    v       v   ',
     '        ^^      ',
     '        xx      '
+])
+//tutorials.push('Cake will be available at the conclusion of this level')
+tutorials.push('')
+
+levelNames.push('Written for js13kGames–2015')
+levels.push([
+    ' (  (( ( ((  (  ',
+    '   (   (   ( (  ',
+    ' (  (  (  (  ( (',
+    ' (   ( (   ( (( ',
+    ' ( ((  ( ((  ( (',
+    '(               ',
+    ''
 ])
 tutorials.push('')
 
