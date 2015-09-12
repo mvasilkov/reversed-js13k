@@ -1,4 +1,5 @@
 function flipGravity() {
+    aa.play('jmp')
     character.g = -character.g
     asciireversed = !asciireversed
 }

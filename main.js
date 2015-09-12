@@ -25,7 +25,9 @@ function initLevel(level) {
 
     if (level == levels.length - 1) {
         paintEnding()
+        aa.play('win')
     }
+    else if (level) aa.play(level == 1? 'bip': 'lvl')
 }
 
 var character = initCharacter()
@@ -139,6 +141,7 @@ function mainloop() {
 
     for (var i = spikes.length; i--;) {
         if (overlap(character, spikes[i])) {
+            aa.play('die')
             character = initCharacter()
             break
         }
