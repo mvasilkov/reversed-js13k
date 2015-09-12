@@ -80,6 +80,8 @@ function computeCharacter() {
         character.y = expectation[0].y - character.height
     }
     character.velocityy = expectation.velocityy
+    if (!character.grip && expectation.grip)
+        aa.play('lnd')
     character.grip = expectation.grip
 
     /* magic */

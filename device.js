@@ -1,6 +1,13 @@
+var isMobile = false
+
 /* Android */
 if (navigator.userAgent.match(/Android/i)) {
     document.body.className += ' and'
+    isMobile = true
+}
+
+if (navigator.userAgent.match(/iPhone|iPad/i)) {
+    isMobile = true
 }
 
 /* CSS pointer-events support */
