@@ -37,7 +37,7 @@
 
 #mm {
     background: rgba(0,0,0,0.5);
-    bottom: 0;
+    bottom: -1px;
     font-size: 22px;
     left: auto;
     line-height: 40px;
