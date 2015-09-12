@@ -113,6 +113,7 @@ function computeCharacter() {
 
 
 var playingGame = false
+var enableMusic = true
 
 function idleMainloop() {
     var now = Date.now()
@@ -126,7 +127,7 @@ function idleMainloop() {
 
     paintBackdrop(t * character.g)
 
-    if (!isMobile)
+    if (enableMusic && !isMobile)
         doMusic(t)
 }
 
@@ -159,7 +160,7 @@ function mainloop() {
     asciitop = character.y
     asciiUpdate()
 
-    if (!isMobile)
+    if (enableMusic && !isMobile)
         doMusic(t)
 }
 

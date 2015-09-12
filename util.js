@@ -17,11 +17,14 @@ var asciileft = 0, asciitop = 0, asciireversed = false
 //}
 
 var $a = $('a'), $b = $('b'), $c = $('c'), $i = $('i'),
-    $p = $('p'), $s = $('s'), $t = $('t')
+    $p = $('p'), $s = $('s'), $t = $('t'), $m = $('m'),
+    $mm = $('mm')
 
 $b.width = $c.width = cwidth
 $b.height = $c.height = cheight
 
+if (isMobile || !(window['AudioContext'] || window['webkitAudioContext'] || window['mozAudioContext']))
+    $mm.style.display = 'none'
 
 function handleResize() {
     var w = window.innerWidth, h = window.innerHeight
@@ -49,6 +52,9 @@ function handleResize() {
 
     $t.style[transformProperty] = 'scale('
     + asciizoom + ')translate(40px,160px)'
+
+    $mm.style[transformProperty] = 'scale('
+    + asciizoom + ')'
 }
 
 

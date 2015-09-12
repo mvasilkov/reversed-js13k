@@ -15,6 +15,11 @@ function handleTouch(event) {
     flipGravity()
 }
 
+function handleMusicToggle() {
+    enableMusic = $m.checked
+}
+
 document.body.addEventListener('keyup', handleSpacebar)
 $i.addEventListener('click', handleTouch)
 $i.addEventListener('touchstart', handleTouch)
+$m.addEventListener('change', handleMusicToggle)

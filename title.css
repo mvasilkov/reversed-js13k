@@ -1,4 +1,4 @@
-#s, #t {
+#s, #t, #mm {
     font: 40px/60px 'Segoe UI', 'Helvetica Neue', sans-serif;
     left: 0;
     position: absolute;
@@ -33,4 +33,74 @@
 #t b:first-child {
     font-size: 40px;
     font-weight: 500;
+}
+
+#mm {
+    background: rgba(0,0,0,0.5);
+    bottom: 0;
+    font-size: 22px;
+    left: auto;
+    line-height: 40px;
+    overflow: hidden;
+    padding-left: 3px;
+    right: 0;
+    text-align: left;
+    top: auto;
+    -webkit-transform-origin: bottom right;
+    transform-origin: bottom right;
+    width: 135px;
+    z-index: 20;
+}
+
+#m, #m::after, #m::before {
+    box-sizing: border-box;
+}
+
+#m {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    height: 24px;
+    margin: 0 5px;
+    outline: 0;
+    position: relative;
+    top: 4px;
+    width: 40px;
+}
+
+#m::after, #m::before {
+    border-radius: 50px;
+    content: '';
+    display: inline-block;
+    transition: all 0.2s;
+}
+
+#m::after {
+    background: #fff;
+    border: 1px solid #607d8b;
+    height: 20px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 20px;
+}
+
+#m::before {
+    background: #b0bec5;
+    height: 24px;
+    width: 40px;
+}
+
+#m:checked::after {
+    left: 18px;
+}
+
+#m:checked::before {
+    background: #c6ff00;
+}
+
+label {
+    color: #eeff41;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
 }
