@@ -9,7 +9,7 @@ build/static.js: levels.js parts.js
 	mkdir -p build
 	buildtool/build_static.js > $@
 
-closure: device.js aa.js polyfill.js util.js build/static.js ascii.js companion-cube.js \
+closure: device.js aa.js synth.js music.js polyfill.js util.js build/static.js ascii.js companion-cube.js \
     loader.js palette.js paint-back.js paint.js paint-ending.js collide.js main.js control.js
 	$(cc) $(cc_opt) $^ > build/app.js
 
