@@ -10,6 +10,8 @@ if (navigator.userAgent.match(/iPhone|iPad/i)) {
     isMobile = true
 }
 
+var isFirefox = !!navigator.userAgent.match(/Firefox/i)
+
 /* CSS pointer-events support */
 var testElement = document.createElement('p')
 testElement.style.cssText = 'pointer-events:auto'
