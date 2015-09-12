@@ -84,7 +84,7 @@ function initializeMusic() {
     if (isMobile)
         return
 
-    var AC = window.AudioContext || window.webkitAudioContext || window.mozAudioContext
+    var AC = window['AudioContext'] || window['webkitAudioContext'] || window['mozAudioContext']
     if (!AC)
         return
 
@@ -98,7 +98,7 @@ function initializeMusic() {
 
     gainNode = audioContext.createGain()
     gainNode.connect(audioContext.destination)
-    gainNode.gain.value = 0.5
+    gainNode.gain.value = 0.333
 }
 
 

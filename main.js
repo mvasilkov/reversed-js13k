@@ -125,6 +125,9 @@ function idleMainloop() {
     requestAnimationFrame(idleMainloop)
 
     paintBackdrop(t * character.g)
+
+    if (!isMobile)
+        doMusic(t)
 }
 
 then = Date.now()
@@ -149,11 +152,15 @@ function mainloop() {
         }
     }
 
-    paintBackdrop(computeCharacter() * character.g)
+    var t = computeCharacter()
+    paintBackdrop(t * character.g)
 
     asciileft = character.x
     asciitop = character.y
     asciiUpdate()
+
+    if (!isMobile)
+        doMusic(t)
 }
 
 function newGame(event) {
@@ -177,5 +184,19 @@ function newGame(event) {
 
 $s.addEventListener('click', newGame)
 $s.addEventListener('touchstart', newGame)
+
+
+initializeMusic()
+
+var mcount = 0
+
+function doMusic(t) {
+    mcount += t
+    if (mcount >= 333) {
+        mcount = mcount % 333
+        playLoop()
+    }
+}
+
 
 //newGame({preventDefault: function(){}})
